@@ -26,5 +26,6 @@ print(df.head())  # Primeros 5 valores del Dataframe
 print(type(df))  # <class 'pandas.core.frame.DataFrame'>
 
 # Forma 2
-df = pd.DataFrame({'Aleatorio':aleatorio, 'Nombre':nombre, 'Numero':numero})
+df = pd.DataFrame({'Aleatorio': aleatorio, 'Nombre': nombre, 'Numero': numero})
 # Tambien se pueden crear a partir de diccionarios
+print(type(df))  # <class 'pandas.core.frame.DataFrame'>
