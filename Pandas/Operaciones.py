@@ -67,6 +67,10 @@ print(df['Numero'].describe())
 # min: Valor Minimo
 # Porcentaje de la suma de mis datos
 # max: Valor Maximo
+# Name: Nombre de la Columna
+# dtype: Siempre sera float64.
+# No se refiere al tipo de dato te la columna.
+# Sino del Describe en si
 
 # count    20.000000
 # mean     16.750000
@@ -79,7 +83,7 @@ print(df['Numero'].describe())
 # Name: Numero, dtype: float64
 
 # Info: Nos da informacion sobre el dataset
-print(df.info())
+df.info()
 # Range index: Cuantas filas tengo en mi DataFrame y en que rango estan 0 al x
 # Data columns: Nos dice que cantidad de columnas tenemos
 # Informacion de las columnas
@@ -99,3 +103,9 @@ print(df.info())
 # Numero       20 non-null int64
 # dtypes: int64(2), object(1)
 # memory usage: 560.0+ bytes
+
+# Pasar de un dataframe a una Matriz de Numpy
+print(df.values[:2])
+# [[67 'Maximo' 13]
+# [76 'Claudio' 13]]
+print(type(df.values))  # <class 'numpy.ndarray'>
