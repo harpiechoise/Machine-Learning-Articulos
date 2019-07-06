@@ -58,3 +58,8 @@ print(np.random.random())  # 0.45667890913413645
 print(50 * np.random.random() + 2)  # Aleatorio entre 2 y 52
 
 # 35.96414339427922
+print(np.random.random([3, 3]))  # Matriz de aleatorios de 3x3
+
+# [[0.37968906 0.4252608  0.05186745]
+#  [0.96590374 0.44257378 0.89585432]
+#  [0.21177747 0.30927265 0.15435601]]
