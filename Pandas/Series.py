@@ -49,3 +49,5 @@ print(a)
 # Length = Cuantos valores tengo en mi Serie
 # Freq = Cada cuanto quiero mi valor, en este caso en dias
 # https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases
+
+print(type(a))  # <class 'pandas.core.indexes.datetimes.DatetimeIndex'>
