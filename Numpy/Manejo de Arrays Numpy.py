@@ -25,13 +25,14 @@ print(np.arange(9).reshape(3, 3).shape)
 # Indices
 a = np.arange(9).reshape(3, 3)
 print(a[1, 1])  # Valor de la segunda fila y la primera columna
+# 4
 
 # Tomar 1 fila
-print(a[1, :])  # Tomo la primera Columna
+print(a[1, :])  # Tomo la segunda fila
 # [3 4 5]
 
 # Tomar 1 Columna
-print(a[:, 1])
+print(a[:, 1]) # Tomo la segunda columna
 # [1 4 7]
 
 # Memoria
