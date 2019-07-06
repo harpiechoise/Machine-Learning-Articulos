@@ -34,3 +34,18 @@ print(a)
 # 1    b
 # 2    c
 # dtype: object
+
+# Rango de fechas
+a = pd.date_range(start='01-07-2019', end='20-07-2019')
+print(a)
+# DatetimeIndex(['2019-01-07', '2019-01-08', '2019-01-09', '2019-01-10',
+#                '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14',
+#                '2019-01-15', '2019-01-16',
+#                ...
+#                '2019-07-11', '2019-07-12', '2019-07-13', '2019-07-14',
+#                '2019-07-15', '2019-07-16', '2019-07-17', '2019-07-18',
+#                '2019-07-19', '2019-07-20'],
+#               dtype='datetime64[ns]', length=195, freq='D')
+# Length = Cuantos valores tengo en mi Serie
+# Freq = Cada cuanto quiero mi valor, en este caso en dias
+# https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases
