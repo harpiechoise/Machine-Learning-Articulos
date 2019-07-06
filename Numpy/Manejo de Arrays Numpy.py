@@ -6,6 +6,7 @@ a = np.linspace(10, 50, 5)
 print(a)
 # [10. 20. 30. 40. 50.]
 print(a.itemsize)  # Tamaño en Bytes de cada elemento
+# 8
 
 # Reshape
 print(np.arange(9))
