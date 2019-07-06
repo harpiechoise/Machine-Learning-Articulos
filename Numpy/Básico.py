@@ -1,6 +1,6 @@
 # Importamos Numpy
 import numpy
-from timeit import timeit
+from timeit import timeit  # Utilidad para hacer pruebas de rendimiento
 import numpy as np
 # Crear una array de numpy
 numpy.array([1, 2, 3])  # array([1, 2, 3])
