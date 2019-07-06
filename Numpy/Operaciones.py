@@ -108,14 +108,8 @@ print(np.dot(a, b))
 # [0.52728665 0.80385265 0.7534904 ]
 # [0.49425156 0.7534904  0.7062834 ]]
 
-# Suma de columnas
-a = np.random.random((2, 10)) * 5
-print(a.sum(axis=1))
-# [20.13862972 36.26166099]
-
 
 a = np.random.random(10)
-
 # Maximo
 print(a.max())  # El valor maximo de la matriz
 # 0.8133470649818069
