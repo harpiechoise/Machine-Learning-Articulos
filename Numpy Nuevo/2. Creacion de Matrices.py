@@ -31,3 +31,51 @@ print(a)
 
 a.dtype     # dtype('complex128')
 a.itemsize  # 16
+
+a = np.zeros((3, 3)) # Array 3x3
+print(a)
+# [[0. 0. 0.]
+#  [0. 0. 0.]
+#  [0. 0. 0.]]
+
+a = np.ones((3, 3), dtype='single') # Array 3x3 
+print(a) 
+# [[1. 1. 1.]
+#  [1. 1. 1.]
+#  [1. 1. 1.]]
+
+a = np.empty((2, 5))  # Array 2x5
+print(a)
+# [[ 4.68083815e-310  8.12555790e-096  9.45869060e-154  3.32231745e+257
+#    4.70106013e+180]
+#  [ 2.14102784e+161  3.09100413e+169 -8.27789406e+016  1.45121267e-308
+#    0.00000000e+000]
+
+b = np.zeros_like(a)  # Copiar las dimensiones
+print(b) 
+# [[0. 0. 0. 0. 0.]
+# [0. 0. 0. 0. 0.]]
+
+b = np.ones_like(a)  # Copiar las dimensiones
+print(b)
+# [[0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0.]]
+
+fn = lambda x, y: x ** y  # Defino mi funcion
+a = np.fromfunction(fn, (5, 5), dtype='single')  # Llamo a mi funcion 
+print(a)
+# [[  1.   0.   0.   0.   0.]
+#  [  1.   1.   1.   1.   1.]
+#  [  1.   2.   4.   8.  16.]
+#  [  1.   3.   9.  27.  81.]
+#  [  1.   4.  16.  64. 256.]]
+
+a = np.arange(10, 21)  # Rango del 1 al 20
+print(a)  # [10 11 12 13 14 15 16 17 18 19 20]
+
+a = np.arange(10, 21, 2)  # Rango del 1 al 20 con distancia 2
+print(a)  # [10 12 14 16 18 20]
+
+# Array Gigante
+print(np.arange(100000))
+# [    0     1     2 ... 99997 99998 99999]
