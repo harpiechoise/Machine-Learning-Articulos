@@ -79,3 +79,40 @@ print(a)  # [10 12 14 16 18 20]
 # Array Gigante
 print(np.arange(100000))
 # [    0     1     2 ... 99997 99998 99999]
+
+#Cambiar las opciones de el metodo print 
+np.set_printoptions(threshold=10)
+print(np.arange(10))  # [0 1 2 3 4 5 6 7 8 9]
+print(np.arange(11))  # [ 0  1  2 ...  8  9 10]
+np.set_printoptions(threshold=1000) # Volver a la normalidad
+
+# Matriz identidad
+a = np.identity(3)  # Matriz de identidad de 3x3
+print(a)
+# [[1. 0. 0.]
+#  [0. 1. 0.]
+#  [0. 0. 1.]]
+
+#K-eye
+a = np.eye(3, k=1)   # La muevo hacia arriba
+print(a)
+# [[0. 1. 0.]
+#  [0. 0. 1.]
+#  [0. 0. 0.]]
+
+a = np.eye(3, k=-1)  # La muevo hacia abajo
+print(a)
+# [[0. 0. 0.]
+#  [1. 0. 0.]
+#  [0. 1. 0.]]
+
+
+def pow(x, y):  # Creo una funcion
+    "Elevar mi Array a un exponente"
+    return x ** y
+
+
+pow_vec = np.vectorize(pow)  # Vectorizo mi funcion
+pow_vec(np.arange(10), 2)  # Le paso los dos argumentos a mi funcion
+# array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81])
+
