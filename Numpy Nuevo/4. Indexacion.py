@@ -37,7 +37,7 @@ print(b[:5, 1])  # Cada valor de la columas de b
 print(b[:, 1])
 # [5 6 7]
 
-print(b[1, ])  # Filas
+print(b[1, ])  # Seleccionar una fila
 # [5 6 7 8 9]
 
 print(b[-1, ])  # Ultima fila
@@ -69,7 +69,8 @@ print(a)
 # [[3. 5. 8. 9.]
 #  [5. 5. 8. 0.]
 #  [1. 0. 7. 6.]]
-
+print(len(a.flat))
+# 12
 print(a.shape)  # (3, 4)
 
 # Array aplanada
@@ -100,6 +101,9 @@ print(a.shape)
 
 a = np.arange(60)
 print(a[[10, 11, 12]])  # Buscamos 3 indices
-a[1] = 1  # Reasignamos el segundo elemento
-a[[1, 3, 7]] = 1  # Reasignamos un valor al primero segundo y tercer elemento
+# [10 11 12]
+a[4] = 1  # Reasignamos el quinto elemento
+print(a[:10])
+# [0 1 2 3 1 5 6 7 8 9]
+a[[1, 3, 7]] = 1  # Reasignamos un valor para el segundo cuarto y octavo valor
 print(a[:10])  # [0 1 2 1 4 5 6 1 8 9]
