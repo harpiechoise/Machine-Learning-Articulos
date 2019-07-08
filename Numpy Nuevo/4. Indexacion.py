@@ -107,3 +107,9 @@ print(a[:10])
 # [0 1 2 3 1 5 6 7 8 9]
 a[[1, 3, 7]] = 1  # Reasignamos un valor para el segundo cuarto y octavo valor
 print(a[:10])  # [0 1 2 1 4 5 6 1 8 9]
+
+# Argmax
+a = np.array([1, 1, 1, 10])
+print(a.argmax())  # Posicion de mi valor maximo
+# 3
+# Indice 3 de mi array
