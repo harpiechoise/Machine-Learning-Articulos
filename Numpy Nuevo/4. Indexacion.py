@@ -1,9 +1,9 @@
 import numpy as np  # Importamos numpy bajo el seudonimo
 
 a = np.arange(10) + 50  # Creamos un rango y le sumamos 50
-print(a[2])  # Si quiero acceder al tercer elemento
+print(a[2])   # Si quiero acceder al tercer elemento
 
-print(a[-2]) # Si quiero el penultimo valor de mi Array
+print(a[-2])  # Si quiero el penultimo valor de mi Array
 # 58
 
 # Seleccionar un rango de elementos
@@ -62,3 +62,44 @@ print(a[a > 55])  # Valores mayores a 55
 
 print(a[(a > 55) | (a == 50)])  # Operaciones de bits
 # [50 56 57 58 59]
+
+a = np.floor(10 * np.random.random((3, 4)))
+# Array de 3x4 de numeros aleatorios
+print(a)
+# [[3. 5. 8. 9.]
+#  [5. 5. 8. 0.]
+#  [1. 0. 7. 6.]]
+
+print(a.shape)  # (3, 4)
+
+# Array aplanada
+print(a.ravel())
+# [3. 5. 8. 9. 5. 5. 8. 0. 1. 0. 7. 6.]
+
+# Reshape
+print(a.reshape(6, 2))
+# [[3. 5.]
+#  [8. 9.]
+#  [5. 5.]
+#  [8. 0.]
+#  [1. 0.]
+#  [7. 6.]]
+
+print(a.T)  # Tranpuesta
+# [[3. 5. 1.]
+#  [5. 5. 0.]
+#  [8. 8. 7.]
+#  [9. 0. 6.]]
+print(a.shape)  # (3, 4)
+print(a.T.shape)  # (4, 3)
+
+# Automatico
+print(a.reshape(3, -1))
+print(a.shape)
+# (3, 4)
+
+a = np.arange(60)
+print(a[[10, 11, 12]])  # Buscamos 3 indices
+a[1] = 1  # Reasignamos el segundo elemento
+a[[1, 3, 7]] = 1  # Reasignamos un valor al primero segundo y tercer elemento
+print(a[:10])  # [0 1 2 1 4 5 6 1 8 9]
