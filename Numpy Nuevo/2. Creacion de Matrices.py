@@ -1,6 +1,6 @@
 import numpy as np  # Importamos numpy bajo seudonimo
 
-a = np.array(1, 2, 3)    # Esto está mal
+# a = np.array(1, 2, 3)    # Esto está mal
 a = np.array([1, 2, 3])  # Mi funcion recibe una lista como parámetro
 
 a = np.array([1, 2, 3])
@@ -32,14 +32,14 @@ print(a)
 a.dtype     # dtype('complex128')
 a.itemsize  # 16
 
-a = np.zeros((3, 3)) # Array 3x3
+a = np.zeros((3, 3))  # Array 3x3
 print(a)
 # [[0. 0. 0.]
 #  [0. 0. 0.]
 #  [0. 0. 0.]]
 
-a = np.ones((3, 3), dtype='single') # Array 3x3 
-print(a) 
+a = np.ones((3, 3), dtype='single')  # Array 3x3
+print(a)
 # [[1. 1. 1.]
 #  [1. 1. 1.]
 #  [1. 1. 1.]]
@@ -52,7 +52,7 @@ print(a)
 #    0.00000000e+000]
 
 b = np.zeros_like(a)  # Copiar las dimensiones
-print(b) 
+print(b)
 # [[0. 0. 0. 0. 0.]
 # [0. 0. 0. 0. 0.]]
 
@@ -61,8 +61,8 @@ print(b)
 # [[0. 0. 0. 0. 0.]
 #  [0. 0. 0. 0. 0.]]
 
-fn = lambda x, y: x ** y  # Defino mi funcion
-a = np.fromfunction(fn, (5, 5), dtype='single')  # Llamo a mi funcion 
+a = np.fromfunction(lambda x, y: x ** y, (5, 5), dtype='single')
+# Llamo a mi funcion
 print(a)
 # [[  1.   0.   0.   0.   0.]
 #  [  1.   1.   1.   1.   1.]
@@ -80,11 +80,11 @@ print(a)  # [10 12 14 16 18 20]
 print(np.arange(100000))
 # [    0     1     2 ... 99997 99998 99999]
 
-#Cambiar las opciones de el metodo print 
+# Cambiar las opciones de el metodo print
 np.set_printoptions(threshold=10)
 print(np.arange(10))  # [0 1 2 3 4 5 6 7 8 9]
 print(np.arange(11))  # [ 0  1  2 ...  8  9 10]
-np.set_printoptions(threshold=1000) # Volver a la normalidad
+np.set_printoptions(threshold=1000)  # Volver a la normalidad
 
 # Matriz identidad
 a = np.identity(3)  # Matriz de identidad de 3x3
@@ -93,7 +93,7 @@ print(a)
 #  [0. 1. 0.]
 #  [0. 0. 1.]]
 
-#K-eye
+# K-eye
 a = np.eye(3, k=1)   # La muevo hacia arriba
 print(a)
 # [[0. 1. 0.]
@@ -116,3 +116,33 @@ pow_vec = np.vectorize(pow)  # Vectorizo mi funcion
 pow_vec(np.arange(10), 2)  # Le paso los dos argumentos a mi funcion
 # array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81])
 
+pow_vec.__doc__  # 'Elevar mi Array a un exponente'
+
+# Guardar mi array
+a = np.arange(10, 50000)
+np.save('Array', a)  # Array.npy
+print(a.size)  # 49990
+
+# Abrir mi array
+a = np.load('Array.npy')
+print(a.size)  # 49990
+
+# Linked Memory
+a = np.array([1, 2, 3])  # Creo una array
+b = a                    # La reasigno a otra variable
+a[0] = 50                # Modifico a
+print(b)                 # Muestro b
+# [50  2  3]
+
+np.shares_memory(a, b)
+# True
+
+# Linked Memory
+a = np.array([1, 2, 3])  # Creo una array
+b = a.copy()             # La copio a otra variable
+a[0] = 50                # Modifico a
+print(b)                 # Muestro b
+# [1 2 3]
+
+np.shares_memory(a, b)
+# False
