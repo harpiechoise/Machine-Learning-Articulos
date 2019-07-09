@@ -39,6 +39,9 @@ print(b)
 # Definir Indices Personalizados
 b = [1, 10, 5]
 b = pd.Series(b, index=['X', 'Y', 'Z'])  # Definir un Array con Indices
+
+print(b)
+
 print(b['X'])  # 1
 
 # Utilidades de definir un Array con indices
