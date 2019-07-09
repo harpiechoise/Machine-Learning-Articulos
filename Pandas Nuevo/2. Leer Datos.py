@@ -14,7 +14,7 @@ df.tail(2)  # Ultimos 2 valores del dataset
 
 df = pd.read_csv('iris', encoding='utf-8')  # Leer un dataframe con encoding
 
-pd.set_option('max_rows', 5, 'max_columns', 2)  # Opciones de print
+pd.set_option('max_rows', 5, 'max_columns', 3)  # Opciones de print
 print(df)
 #      sepal length in cm   sepal width in cm   petal length in cm  ....
 # 0                   5.1                 3.5                  1.4
@@ -50,9 +50,10 @@ print(df)
 
 # Webscraping
 # pip install lxml
+# pip instal html5lib
 url = pd.read_html('https://www.rexegg.com/regex-quickstart.html')
 df = url[0]
-df.head(2)
+df.head(10)
 #   Character                                           Legend    Example  \
 # 0        \d               Most engines: one digitfrom 0 to 9  file_\d\d
 # 1        \d  .NET, Python 3: one Unicode digit in any script  file_\d\d
