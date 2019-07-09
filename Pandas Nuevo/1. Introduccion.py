@@ -97,6 +97,29 @@ print(df)
 
 # Selecionar una Columna
 df['Nombre']
+# 0       Franco
+# 1    Francisco
+# 2       Lorena
+# Name: Nombre, dtype: object
 
 # Seleccionar multiples Columnas
 df[['Nombre', 'Mesa']]
+#       Nombre  Mesa
+# 0     Franco     5
+# 1  Francisco     3
+# 2     Lorena     4
+
+# Seleccionar una fila con el nombre de las columnas
+df.ix[0]
+# Nombre        Franco
+# Pedido    Panqueques
+# Mesa               5
+# Name: 0, dtype: object
+
+# Acediendo a un elemento especifico de una fila del
+# Dataframe
+df.ix[0, 'Pedido']
+# 'Panqueques'
+
+# Borrar una Columna
+print(df.drop(['Mesa'], axis=1))
