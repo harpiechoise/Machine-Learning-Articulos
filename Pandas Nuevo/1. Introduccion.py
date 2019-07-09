@@ -113,7 +113,7 @@ df[['Nombre', 'Mesa']]
 # 2     Lorena     4
 
 # Seleccionar una fila con el nombre de las columnas
-df.ix[0]
+type(df.ix['uno'])
 # Nombre        Franco
 # Pedido    Panqueques
 # Mesa               5
@@ -121,8 +121,16 @@ df.ix[0]
 
 # Acediendo a un elemento especifico de una fila del
 # Dataframe
-df.ix[0, 'Pedido']
+df.ix['uno', 'Pedido']
 # 'Panqueques'
 
 # Borrar una Columna
 print(df.drop(['Mesa'], axis=1))
+# Borrar instancia en memoria
+del df['Mesa']
+
+print(df)
+#          Nombre      Pedido         Algo
+# uno      Franco  Panqueques  Por Definir
+# dos   Francisco      Bebida  Por Definir
+# tres     Lorena       Papas  Por Definir
