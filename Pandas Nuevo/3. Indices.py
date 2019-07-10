@@ -72,4 +72,36 @@ print(df)
 # Si no existe
 df.X = list(range(len(df)))  # Lanza Error
 #  Pandas doesn't allow columns to be created via a new attribute name
-df['X'] = list(range(len(df)))  # Forma correcta 
+df['X'] = list(range(len(df)))  # Forma correcta
+
+# Asignar una fila
+df.iloc[1] = {'A': 1, 'B': 2, 'C': 3, 'D': 4}
+print(df)
+#             A          B         C          D
+# 2019-02-27  0   0.671448  0.161066  0.0596664
+# 2019-02-28  1          2         3          4
+# 2019-03-01  2   0.261184  0.885155   0.660747
+# 2019-03-02  3   0.700732  0.935873   0.901624
+# 2019-03-03  4   0.585571  0.983047  0.0620701
+# 2019-03-04  5  0.0680889  0.737237   0.233875
+# 2019-03-05  6   0.493405  0.226257   0.809233
+# 2019-03-06  7   0.877922  0.786466   0.182065
+
+# Slices
+# Series
+s[:2]  # Primeros 2 Elementos
+# 2019-02-27    0.686824
+# 2019-02-28    0.868448
+# Freq: D, Name: A, dtype: float64
+
+s[::2]  # Todos los elementos con paso 2
+# 2019-02-27    0.686824
+# 2019-03-01    0.199276
+# 2019-03-03    0.805328
+# 2019-03-05    0.006065
+# Freq: 2D, Name: A, dtype: float64
+
+s[::-1]  # Reversa de indices
+s[5::-1]  # Los primeros 5 indices al revez
+
+s2 = s.copy()  # Pasa lo mismo que numpy con la memoria
