@@ -19,7 +19,7 @@ print(c)
 
 # Merging
 a = pd.DataFrame({'Ciudad': ['Santiago', 'La serena', 'Temuco'],
-                   'Viento KM': [30, 60, 20]})
+                  'Viento KM': [30, 60, 20]})
 
 b = pd.DataFrame({'Ciudad': ['Santiago', 'La serena', 'Temuco'],
                   'Humedad': [60, 20, 30], 
