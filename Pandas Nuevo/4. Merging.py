@@ -23,7 +23,7 @@ a = pd.DataFrame({'Ciudad': ['Santiago', 'La serena', 'Temuco'],
 
 b = pd.DataFrame({'Ciudad': ['Santiago', 'La serena', 'Temuco'],
                   'Humedad': [60, 20, 30], 
-                  'Direcion Viento': ['E', 'S', 'O']})
+                  'Direccion Viento': ['E', 'S', 'O']})
 
 c = pd.merge(a, b, on='Ciudad')
 print(c)
