@@ -73,9 +73,9 @@ print(df)
 df.X = list(range(len(df)))  # Lanza Error
 #  Pandas doesn't allow columns to be created via a new attribute name
 df['X'] = list(range(len(df)))  # Forma correcta
-
+df
 # Asignar una fila
-df.iloc[1] = {'A': 1, 'B': 2, 'C': 3, 'D': 4}
+df.iloc[1] = [1, 2, 3, 4]
 print(df)
 #             A          B         C          D
 # 2019-02-27  0   0.671448  0.161066  0.0596664
