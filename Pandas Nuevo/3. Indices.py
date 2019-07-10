@@ -153,4 +153,47 @@ df.loc[2:3]  # No se pueden usar Slice con loc
 
 # Anot3
 s1 = pd.Series(np.random.randn(6), index=list('abcdef'))
-print(df)
+print(s1[3:])
+# d   -0.047107
+# e   -0.180345
+# f    0.334778
+# dtype: float64
+
+s1.loc['d':]
+# d   -0.047107
+# e   -0.180345
+# f    0.334778
+# dtype: float64
+
+s1.loc['b']
+# 0.8256215434880477
+
+# Seleccionar filas del dataframe
+df.index = list('abcedfgh')  # Reasignar indice
+df.loc[['a', 'e', 'f'], :]  # Todas las columnas de los indices a e f
+#    A          B         C          D
+# a  0   0.671448  0.161066  0.0596664
+# e  3   0.700732  0.935873   0.901624
+# f  5  0.0680889  0.737237   0.233875
+
+df.loc['a':'c', 'A':'B']  # Filas: a hasta c, columnas: 'A' hasta 'B'
+#    A         B
+# a  0  0.671448
+# b  1         2
+# c  2  0.261184
+
+df.loc['a']
+# A            0
+# B     0.671448
+# C     0.161066
+# D    0.0596664
+# Name: a, dtype: object
+
+# Arrays de booleanos
+df.loc['a'] > 0.1
+# Selecciona todas las columnas donde a sea mayor a 0.1
+# A    False
+# B     True
+# C     True
+# D    False
+# Name: a, dtype: bool
