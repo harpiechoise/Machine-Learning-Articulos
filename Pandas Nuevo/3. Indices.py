@@ -197,3 +197,20 @@ df.loc['a'] > 0.1
 # C     True
 # D    False
 # Name: a, dtype: bool
+
+df.loc[:, df.loc['a'] > 0.5]  #Queries
+# a  0.671448
+# b         2
+
+df.loc['a', 'A']  # Indice a de la columna A
+# 0
+
+# Con indices
+s1 = pd.Series(np.random.randint(5), index=list(range(0, 10, 2)))
+print(s1)
+# 0    2
+# 2    2
+# 4    2
+# 6    2
+# 8    2
+# dtype: int64
