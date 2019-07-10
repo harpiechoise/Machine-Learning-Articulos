@@ -198,7 +198,7 @@ df.loc['a'] > 0.1
 # D    False
 # Name: a, dtype: bool
 
-df.loc[:, df.loc['a'] > 0.5]  #Queries
+df.loc[:, df.loc['a'] > 0.5]  # Queries
 # a  0.671448
 # b         2
 
@@ -214,3 +214,87 @@ print(s1)
 # 6    2
 # 8    2
 # dtype: int64
+
+s1.iloc[:3]  # Primeros 3 elementos de una serie
+# 0    2
+# 2    2
+# 4    2
+# dtype: int64
+
+df.iloc[:3]  # Primeros 3 elementos de un dataframe
+#    A         B         C          D
+# a  0  0.671448  0.161066  0.0596664
+# b  1         2         3          4
+# c  2  0.261184  0.885155   0.660747
+
+df.iloc[:3, :2]  # Primeras 3 filas y primeras 2 columnas
+#    A         B
+# a  0  0.671448
+# b  1         2
+# c  2  0.261184
+
+df.iloc[[1, 4, 5], [1, 2]]  # Segundo, Quito, Sexto elemento
+# De segunda y tercera columna
+
+#            B         C
+# b          2         3
+# d   0.585571  0.983047
+# f  0.0680889  0.737237
+
+df.iloc[1:3, :]  # Todas las columnas del segundo al cuarto indice
+#    A         B         C         D
+# b  1         2         3         4
+# c  2  0.261184  0.885155  0.660747
+
+df.head().iloc[:, 1:3]  # Todos los indices
+# De la segunda a cuarta columna
+
+#           B         C
+# a  0.671448  0.161066
+# b         2         3
+# c  0.261184  0.885155
+# e  0.700732  0.935873
+# d  0.585571  0.983047
+
+# Querys
+# SQL
+# SELECT FROM df WHERE B>1
+df.loc[lambda df: df.B > 1, :]
+#    A  B  C  D
+# b  1  2  3  4
+
+# SQL
+# SELECT A, B FROM df
+df.loc[:, lambda df: ['A', 'B']]
+#    A          B
+# a  0   0.671448
+# b  1          2
+# c  2   0.261184
+# e  3   0.700732
+# d  4   0.585571
+# f  5  0.0680889
+# g  6   0.493405
+# h  7   0.877922
+
+# SELECT A, B FROM df
+df.iloc[:, lambda df: [0, 1]]
+#    A          B
+# a  0   0.671448
+# b  1          2
+# c  2   0.261184
+# e  3   0.700732
+# d  4   0.585571
+# f  5  0.0680889
+# g  6   0.493405
+# h  7   0.877922
+
+# SELECT A FROM df
+df[lambda df: df.columns[0]]
+# a    0
+# b    1
+# c    2
+# e    3
+# d    4
+# f    5
+# g    6
+# h    7
