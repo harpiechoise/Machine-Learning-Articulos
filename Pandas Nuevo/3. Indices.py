@@ -102,6 +102,55 @@ s[::2]  # Todos los elementos con paso 2
 # Freq: 2D, Name: A, dtype: float64
 
 s[::-1]  # Reversa de indices
-s[5::-1]  # Los primeros 5 indices al revez
+# 2019-03-06    0.764515
+# 2019-03-05    0.006065
+# 2019-03-04    0.120355
+# 2019-03-03    0.805328
+# 2019-03-02    0.966972
+# 2019-03-01    0.199276
+# 2019-02-28    0.868448
+# 2019-02-27    0.686824
+# Freq: -1D, Name: A, dtype: float64
+
+s[5::-1]  # ultimos 6 elementos al revez
+# 2019-03-04    0.120355
+# 2019-03-03    0.805328
+# 2019-03-02    0.966972
+# 2019-03-01    0.199276
+# 2019-02-28    0.868448
+# 2019-02-27    0.686824
+# Freq: -1D, Name: A, dtype: float64
 
 s2 = s.copy()  # Pasa lo mismo que numpy con la memoria
+s2[:5] = 0
+print(s2)
+# 2019-02-27    0.000000
+# 2019-02-28    0.000000
+# 2019-03-01    0.000000
+# 2019-03-02    0.000000
+# 2019-03-03    0.000000
+# 2019-03-04    0.120355
+# 2019-03-05    0.006065
+# 2019-03-06    0.764515
+# Freq: D, Name: A, dtype: float64
+
+# Dataframe
+df[:3]  # Primeros 3 elementos
+#             A         B         C          D
+# 2019-02-27  0  0.671448  0.161066  0.0596664
+# 2019-02-28  1         2         3          4
+# 2019-03-01  2  0.261184  0.885155   0.660747
+
+df[2::-1]  # Ultimos 3 elementos al revez
+#             A         B         C          D
+# 2019-03-01  2  0.261184  0.885155   0.660747
+# 2019-02-28  1         2         3          4
+# 2019-02-27  0  0.671448  0.161066  0.0596664-
+
+# Advertencia
+df.loc[2:3]  # No se pueden usar Slice con loc
+# TypeError: cannot do slice indexing on
+
+# Anot3
+s1 = pd.Series(np.random.randn(6), index=list('abcdef'))
+print(df)

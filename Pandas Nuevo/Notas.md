@@ -6,3 +6,12 @@ Pandas tiene un set rico en funciones para trabajar con datos de varios tipos, Y
 
 # https://pandas.pydata.org/pandas-docs/version/0.25.0/user_guide/indexing.html#different-choices-for-indexing
 Indexing Choices
+
+Anot 3
+The .loc attribute is the primary access method. The following are valid inputs:
+
+A single label, e.g. 5 or 'a' (Note that 5 is interpreted as a label of the index. This use is not an integer position along the index.).
+A list or array of labels ['a', 'b', 'c'].
+A slice object with labels 'a':'f' (Note that contrary to usual python slices, both the start and the stop are included, when present in the index! See Slicing with labels.
+A boolean array.
+A callable, see Selection By Callable.
