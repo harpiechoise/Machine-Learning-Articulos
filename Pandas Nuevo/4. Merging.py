@@ -22,8 +22,9 @@ a = pd.DataFrame({'Ciudad': ['Santiago', 'La serena', 'Temuco'],
                   'Viento KM': [30, 60, 20]})
 
 b = pd.DataFrame({'Ciudad': ['Santiago', 'La serena', 'Temuco'],
-                  'Humedad': [60, 20, 30], 
+                  'Humedad': [60, 20, 30],
                   'Direccion Viento': ['E', 'S', 'O']})
 
 c = pd.merge(a, b, on='Ciudad')
-print(c)
+
+c = pd.concat([a, b], axis=1, join='inner')
