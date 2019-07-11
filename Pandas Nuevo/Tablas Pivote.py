@@ -32,6 +32,39 @@ pt
 # uno B -0.15360       NaN       NaN       NaN  0.563443
 #     C      NaN -0.085424 -1.289704       NaN       NaN
 
-df = pd.read_csv('iris.csv')
-pt = pd.pivot_table(df, values=df.columns[:-1], index=pd.Index(df.columns[-1]))
+pt = pd.pivot_table(df, values='E', index=['A', 'B'], columns='C', aggfunc=np.sum)
 pt
+# C         Adios      Como     Estas      Hola     adios
+# A   B                                                  
+# dos A       NaN       NaN       NaN -0.146557       NaN
+#     B  0.449041       NaN       NaN       NaN       NaN
+# ...         ...       ...       ...       ...       ...
+# uno B -0.307201       NaN       NaN       NaN  1.126886
+#     C       NaN -0.170849 -2.579407       NaN       NaN
+
+print(pt.to_string())
+# C          Adios      Como     Estas      Hola     adios
+# A    B                                                  
+# dos  A       NaN       NaN       NaN -0.146557       NaN
+#      B  0.449041       NaN       NaN       NaN       NaN
+#      C       NaN  2.108767       NaN       NaN       NaN
+# tres A       NaN       NaN  0.042156       NaN       NaN
+#      B       NaN       NaN       NaN       NaN  1.228165
+#      C       NaN       NaN  1.147061       NaN       NaN
+# uno  A       NaN       NaN -2.790387  0.549069       NaN
+#      B -0.307201       NaN       NaN       NaN  1.126886
+#      C       NaN -0.170849 -2.579407       NaN       NaN
+
+pd.crosstab(df.A, df.B)
+# B     A  B  C
+# A            
+# dos   2  2  2
+# tres  2  2  2
+# uno   4  4  4
+
+pd.crosstab(df.A, df.B, normalize=True)
+# B            A         B         C
+# A                                 
+# dos   0.083333  0.083333  0.083333
+# tres  0.083333  0.083333  0.083333
+# uno   0.166667  0.166667  0.166667
