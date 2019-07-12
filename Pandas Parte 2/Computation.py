@@ -43,3 +43,19 @@ s2.var()
 # Covarianza
 s3 = pd.Series(np.random.randn(1000))
 s3.cov(s2)
+# 0.004279714683136323
+
+s4 = pd.Series(np.repeat(65, repeats=1000))
+s5 = pd.Series(np.repeat(65, repeats=1000))
+s4.cov(s5)
+# 0.0
+
+# Pearsons correlation
+df['a'].corr(df['b'])
+# -0.3499692166273486
+
+# Spearman Correlation
+df['a'].corr(df['b'], method='spearman')
+
+s = pd.Series(np.random.randn(5), index=list('abcde'))
+s.rank(method='max')
