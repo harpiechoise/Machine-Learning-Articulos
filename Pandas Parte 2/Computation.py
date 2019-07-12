@@ -3,6 +3,32 @@ import numpy as np
 
 ser = pd.Series(np.random.random(8))
 
+# Promedio
+ser.mean()
+# 0.3948276463138056
+
+# Mediana
+ser.median()
+# 0.3446317936436484
+
+# Minimo
+ser.min()
+
+# Maximo
+ser.max()
+
+# Aplicar funcion
+ser.apply(np.sin)
+# 0    0.442845
+# 1    0.333857
+# 2    0.133464
+# 3    0.131936
+# 4    0.341837
+# 5    0.716989
+# 6    0.083599
+# 7    0.758646
+# dtype: float64
+
 # Cambio porcentual
 ser.pct_change()
 # 0         NaN
@@ -57,13 +83,24 @@ df['a'].corr(df['b'])
 # Spearman Correlation
 df['a'].corr(df['b'], method='spearman')
 
+# Los Valores Minimos Primero
 s = pd.Series(np.random.randint(low=1, high=20, size=5))
 s.rank(method='max')
-df = pd.DataFrame({'s': s, 's_rank': s.rank()})
-df.sort_values(by='s')
+df = pd.DataFrame({'s': s, 's_rank': s.rank(ascending=True)})
+df.sort_values(by='s_rank')
 #     s  s_rank
 # 0   7     1.0
 # 3   8     2.0
 # 2  12     3.0
 # 1  14     4.0
 # 4  16     5.0
+
+# Los valores maximos primero
+df = pd.DataFrame({'s': s, 's_rank': s.rank(ascending=False)})
+df.sort_values(by='s_rank')
+#     s  s_rank
+# 4  16     1.0
+# 1  14     2.0
+# 2  12     3.0
+# 3   8     4.0
+# 0   7     5.0
