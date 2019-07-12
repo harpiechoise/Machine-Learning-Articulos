@@ -1,5 +1,6 @@
 import pandas as pd
 from pandas.api.types import CategoricalDtype
+import numpy as np
 # Tipo de dato categorico
 s = pd.Series(['a', 'b', 'c', 'd'], dtype='category')
 s
@@ -66,7 +67,7 @@ s[s < 'd']
 # Categories (4, object): [a < b < c < d]
 
 s1 = pd.Series(list('abcd'))
-df = pd.DataFrame({'cat':s, 's':s1})
+df = pd.DataFrame({'cat': s, 's': s1})
 df
 #   cat  s
 # 0   a  a
@@ -88,25 +89,30 @@ df['cat'].describe()
 # freq      1
 # Name: cat, dtype: object
 
-s = pd.Categorical(list('aaaaabbbbbbccccccddddeee'), categories=list('abcde'))
+s = pd.Series(list('aaaaabbbbbbccccccddddeee'), dtype='category')
+s1 = pd.Series(np.random.randint(low=1, high=20, size=24))
 s.unique()
 # [a, b, c, d, e]
 # Categories (5, object): [a, b, c, d, e]
 
-df = pd.DataFrame({'A': s1, 'cat': s})
-df.cat  # Valores categoricos
-# 0    a
-# 1    b
-# 2    c
-# 3    d
-# Name: cat, dtype: category
-# Categories (4, object): [a < b < c < d]
+df = pd.DataFrame({'A': s1, 'c': s})
 
-df
-#   cat  s
-# 0   a  a
-# 1   b  b
-# 2   c  c
-# 3   d  d
+df.c.cat.categories = [f'Grupo: {g}' for g in df.c.cat.categories]
+df.head(2)
+#     A         c
+# 0  18  Grupo: a
+# 1   7  Grupo: a
 
-df.cat.categories = [f"Grupo {g}" for g in s.cat.categories]
+df = df.set_index([df.c, df.index], drop=True)
+df.loc['Grupo: d']
+#      A         c
+# 17  18  Grupo: d
+# 18  15  Grupo: d
+# 19   8  Grupo: d
+# 20  17  Grupo: d
+
+s.cat.categories = [1, 1, 1, 1, 1]
+# ValueError: Categorical categories must be unique
+
+s.cat.categories = [1, 2, 3, np.nan, 5]
+# ValueError: Categorial categories cannot be null
