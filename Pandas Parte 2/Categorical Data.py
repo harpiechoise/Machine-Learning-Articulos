@@ -64,3 +64,49 @@ s[s < 'd']
 # 2    c
 # dtype: category
 # Categories (4, object): [a < b < c < d]
+
+s1 = pd.Series(list('abcd'))
+df = pd.DataFrame({'cat':s, 's':s1})
+df
+#   cat  s
+# 0   a  a
+# 1   b  b
+# 2   c  c
+# 3   d  d
+
+df.describe()
+#        cat  s
+# count    4  4
+# unique   4  4
+# top      d  c
+# freq     1  1
+
+df['cat'].describe()
+# count     4
+# unique    4
+# top       d
+# freq      1
+# Name: cat, dtype: object
+
+s = pd.Categorical(list('aaaaabbbbbbccccccddddeee'), categories=list('abcde'))
+s.unique()
+# [a, b, c, d, e]
+# Categories (5, object): [a, b, c, d, e]
+
+df = pd.DataFrame({'A': s1, 'cat': s})
+df.cat  # Valores categoricos
+# 0    a
+# 1    b
+# 2    c
+# 3    d
+# Name: cat, dtype: category
+# Categories (4, object): [a < b < c < d]
+
+df
+#   cat  s
+# 0   a  a
+# 1   b  b
+# 2   c  c
+# 3   d  d
+
+df.cat.categories = [f"Grupo {g}" for g in s.cat.categories]
