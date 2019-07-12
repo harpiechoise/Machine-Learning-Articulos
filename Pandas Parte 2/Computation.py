@@ -57,5 +57,13 @@ df['a'].corr(df['b'])
 # Spearman Correlation
 df['a'].corr(df['b'], method='spearman')
 
-s = pd.Series(np.random.randn(5), index=list('abcde'))
+s = pd.Series(np.random.randint(low=1, high=20, size=5))
 s.rank(method='max')
+df = pd.DataFrame({'s': s, 's_rank': s.rank()})
+df.sort_values(by='s')
+#     s  s_rank
+# 0   7     1.0
+# 3   8     2.0
+# 2  12     3.0
+# 1  14     4.0
+# 4  16     5.0
