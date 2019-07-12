@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-# NaN como -Infinitos 
+# NaN como -Infinitos
 pd.options.mode.use_inf_as_na = True
 
 # Creando un dataframe con nulos
