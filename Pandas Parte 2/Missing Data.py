@@ -87,3 +87,33 @@ df.sum(axis=1, skipna=False)
 # 4   NaN
 # dtype: float64
 
+# Cuando sacamos el producto tampoco nos afecta
+s.prod()
+# 1.0
+
+# Fill Na
+df2 = df.copy()
+df2.fillna(0)
+#     Uno   Dos  Tres  Cuatro  Cinco
+# 0  12.0   0.0   5.0     0.0    0.0
+# 1  12.0  16.0   0.0    10.0    0.0
+# 2   0.0   0.0   0.0     0.0   13.0
+# 3   0.0  16.0   0.0    10.0    0.0
+# 4   0.0   0.0   5.0    10.0   13.0
+
+# Drop na
+df2 = df2.fillna(df.mean(), limit=2)
+
+df2.dropna(axis=0)  # Borramos las filas de nulos
+#     Uno   Dos  Tres  Cuatro  Cinco
+# 0  12.0  16.0   5.0    10.0   13.0
+# 1  12.0  16.0   5.0    10.0   13.0
+# 2  12.0  16.0   5.0    10.0   13.0
+
+df2.dropna(axis=1)  # Borramos las columnas de nulos
+#    Cuatro
+# 0    10.0
+# 1    10.0
+# 2    10.0
+# 3    10.0
+# 4    10.0
