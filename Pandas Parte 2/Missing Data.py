@@ -117,3 +117,4 @@ df2.dropna(axis=1)  # Borramos las columnas de nulos
 # 2    10.0
 # 3    10.0
 # 4    10.0
+
