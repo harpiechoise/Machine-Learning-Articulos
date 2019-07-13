@@ -6,3 +6,4 @@
 /.medapi/
 regression.py
 train.csv
+ex.py
