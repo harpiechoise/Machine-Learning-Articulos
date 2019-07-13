@@ -5,3 +5,4 @@
 /.medapi/*
 /.medapi/
 regression.py
+train.csv
