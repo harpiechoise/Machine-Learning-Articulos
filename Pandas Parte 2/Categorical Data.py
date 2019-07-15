@@ -103,7 +103,7 @@ df.head(2)
 # 0  18  Grupo: a
 # 1   7  Grupo: a
 
-df = df.set_index([df.c, df.index], drop=True)
+df = df.set_index([df.c, df.index])
 df.loc['Grupo: d']
 #      A         c
 # 17  18  Grupo: d
