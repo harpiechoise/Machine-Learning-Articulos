@@ -65,6 +65,9 @@ s.var()
 s2 = pd.Series(np.random.randn(1000))
 s2.var()
 
+# Desviacion standar
+s2.std()
+
 # Covarianza
 s3 = pd.Series(np.random.randn(1000))
 s3.cov(s2)
