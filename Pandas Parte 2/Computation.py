@@ -64,7 +64,6 @@ s.var()
 # En una distribucion normal
 s2 = pd.Series(np.random.randn(1000))
 s2.var()
-# 1.0441843569089062
 
 # Covarianza
 s3 = pd.Series(np.random.randn(1000))
