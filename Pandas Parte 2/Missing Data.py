@@ -111,7 +111,7 @@ df2.fillna(0)
 
 # Drop na
 df2 = df2.fillna(df.mean(), limit=2)
-
+df2
 df2.dropna(axis=0)  # Borramos las filas de nulos
 #     Uno   Dos  Tres  Cuatro  Cinco
 # 0  12.0  16.0   5.0    10.0   13.0
