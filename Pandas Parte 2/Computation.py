@@ -106,3 +106,9 @@ df.sort_values(by='s_rank')
 # 2  12     3.0
 # 3   8     4.0
 # 0   7     5.0
+s = pd.Series(np.random.randint(low=70, high=800, size=5))
+
+df = pd.DataFrame({'s': s, 's_rank': s.rank(method='dense')})
+df = df.set_index('s_rank')
+df = df.sort_index()
+df
