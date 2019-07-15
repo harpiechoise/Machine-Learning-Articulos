@@ -22,7 +22,7 @@ df
 # 3   NaN  16.0   NaN    10.0    NaN
 # 4   NaN   NaN   5.0    10.0   13.0
 
-# Filtrar nulos
+# Filtrar nulos 
 pd.isna(df['Uno'])
 # 0    False
 # 1    False
@@ -30,6 +30,14 @@ pd.isna(df['Uno'])
 # 3     True
 # 4     True
 # Name: Uno, dtype: bool
+
+pd.isna(df)
+#      Uno    Dos   Tres  Cuatro  Cinco
+# 0   True   True  False   False   True
+# 1  False   True  False   False   True
+# 2  False   True  False    True  False
+# 3   True  False   True    True   True
+# 4   True  False  False    True  False
 
 pd.notna(df['Dos'])
 # 0    False
